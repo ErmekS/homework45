@@ -24,7 +24,7 @@ def create_sketchpad(request):
         status = request.POST.get("status")
         date_of_completion = request.POST.get("date_of_completion")
         if date_of_completion == '':
-            date_of_completion = "2012-12-12"
+            date_of_completion = None
             new_sketchpad = Sketchpad.objects.create(description=description, status=status, date_of_completion=date_of_completion)
             context = {"sketchpad": new_sketchpad}
             return render(request, "sketchpad_view.html", context)
