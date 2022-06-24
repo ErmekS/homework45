@@ -6,17 +6,23 @@
 </head>
 <body>
 
-<h1>Create zada4a</h1>
+<h1>Create note</h1>
 
 <form action="/sketch/add/" method="post">
     {% csrf_token %}
-    <label>description:</label><br/>
-    <input type="text" name="description"/><br/>
-    <label>Text:</label><br/>
-    <textarea name="status"></textarea><br/>
-    <label>Author:</label><br/>
-    <input type="text" name="date_of_completion"/><br/>
+    <label>Create:</label><br/>
+    <select name="status">
+        {% for value, status in statuses %}
+            <option value="{{ value }}">{{ status }}</option>
+        {% endfor %}
+    </select>
     <br/>
+    <label>Description:</label><br/>
+    <input type="text" name="description"/><br/>
+
+    <label for="date_of_completion">Date of completion:</label>
+    <input type="date" id="date_of_completion" name="date_of_completion">
+
     <input type="submit" value="Send"/>
 </form>
 <a href="/">На главную</a>
