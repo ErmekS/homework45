@@ -19,8 +19,8 @@ from webapp.views import index_view, create_sketchpad, sketchpad_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),
-    path('sketch/', sketchpad_view),
-    path('sketch/add/', create_sketchpad),
+    path('', index_view, name="index"),
+    path('sketch/<int:pk>/', sketchpad_view, name="sketchpad_view"),
+    path('sketch/add/', create_sketchpad, name="create_sketchpad"),
 
 ]

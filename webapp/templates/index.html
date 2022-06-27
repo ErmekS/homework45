@@ -11,14 +11,14 @@
 </head>
 <body>
 
-<a href="sketch/add/">Создать задачу</a>
+<a href="{% url "create_sketchpad" %}">Создать задачу</a>
 <h1>Список задач</h1>
 
 {% for sketchpad in sketchpads %}
     <h3> DESCRIPTION: {{ sketchpad.description }}</h3>
     <p>STATUS: {{ sketchpad.get_status_display }} </p>
     <p>DATE OF COMPLETION: {{ sketchpad.date_of_completion }}</p>
-    <p><a href="sketch/?pk={{ sketchpad.pk }}">Подробнее</a></p>
+    <p><a href="{% url "sketchpad_view" sketchpad.pk %}">Подробнее</a></p>
     <h2> ================================= </h2>
 {% endfor %}
 
