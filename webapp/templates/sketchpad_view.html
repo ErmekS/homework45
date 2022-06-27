@@ -1,35 +1,27 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<p>
-    {{ sketchpad.title }}
-</p>
+{% extends "base.html" %}
+{% block title %} Sketch view {% endblock %}
 
-<p>
-    {{ sketchpad.description }}
-</p>
-<p>
-    {{ sketchpad.status }}
-</p>
+{% block content %}
+    <p>
+        TITLE: {{ sketchpad.title }}
+    </p>
 
-<p>
-DATE OF COMPLETION:
-    {% if sketchpad.date_of_completion == None %}
-         {{ "" }}
-    {% else %}
-        {{ sketchpad.date_of_completion }}
-    {% endif %}
+    <p>
+        DESCRIPTION: {{ sketchpad.description }}
+    </p>
+    <p>
+        STATUS: {{ sketchpad.status }}
+    </p>
 
-</p>
+    <p>
+        DATE OF COMPLETION:
+        {% if sketchpad.date_of_completion == None %}
+            {{ "" }}
+        {% else %}
+            {{ sketchpad.date_of_completion }}
+        {% endif %}
+    </p>
 
+    <a href="{% url "index" %}">На главную</a>
 
-<a href="{% url "index" %}">На главную</a>
-</body>
-</html>
+{% endblock %}

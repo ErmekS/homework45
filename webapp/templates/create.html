@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Create Sketchpad{% endblock %}
 
+{% block content%}
 <h1>Create note</h1>
 
 <form action="" method="post">
@@ -26,5 +22,4 @@
     <input type="submit" value="Send"/><br/>
 </form>
 <br/><a href="{% url "index" %}">На главную</a>
-</body>
-</html>
+{% endblock %}
