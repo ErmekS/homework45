@@ -8,18 +8,26 @@
     <title>Document</title>
 </head>
 <body>
+<p>
+    {{ sketchpad.title }}
+</p>
 
-        <p>
-            {{ sketchpad.description }}
-        </p>
-        <p>
-            {{ sketchpad.status }}
-        </p>
+<p>
+    {{ sketchpad.description }}
+</p>
+<p>
+    {{ sketchpad.status }}
+</p>
 
-        <p>
-            {{ sketchpad.date_of_completion }}
-        </p>
+<p>
+DATE OF COMPLETION:
+    {% if sketchpad.date_of_completion == None %}
+         {{ "" }}
+    {% else %}
+        {{ sketchpad.date_of_completion }}
+    {% endif %}
 
+</p>
 
 
 <a href="{% url "index" %}">На главную</a>

@@ -21,17 +21,18 @@ def create_sketchpad(request):
     if request.method == "GET":
         return render(request, "create.html", {"statuses": STATUS_CHOICES})
     else:
+        title = request.POST.get("title")
         description = request.POST.get("description")
         status = request.POST.get("status")
         date_of_completion = request.POST.get("date_of_completion")
         if date_of_completion == '':
             date_of_completion = None
-            new_sketchpad = Sketchpad.objects.create(description=description, status=status, date_of_completion=date_of_completion)
+            new_sketchpad = Sketchpad.objects.create(title=title, description=description, status=status, date_of_completion=date_of_completion)
             # context = {"sketchpad": new_sketchpad}
             # return render(request, "sketchpad_view.html", context)
             return redirect("sketchpad_view", pk=new_sketchpad.pk)
         else:
-            new_sketchpad = Sketchpad.objects.create(description=description, status=status,date_of_completion=date_of_completion)
+            new_sketchpad = Sketchpad.objects.create(title=title, description=description, status=status,date_of_completion=date_of_completion)
             # context = {"sketchpad": new_sketchpad}
             # return render(request, "sketchpad_view.html", context)
             return redirect("sketchpad_view", pk=new_sketchpad.pk)
