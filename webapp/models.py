@@ -12,7 +12,7 @@ class Sketchpad(models.Model):
 
 
     def __str__(self):
-        return f"{self.id}. {self.description}: {self.status} {self.date_of_completion}"
+        return f"{self.id}. {self.description}: {self.status} {self.date_of_completion} {self.title}"
 
     class Meta:
         db_table = "sketchpad"

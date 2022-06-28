@@ -16,7 +16,6 @@ def sketchpad_view(request, **kwargs):
     return render(request, "sketchpad_view.html", {"sketchpad": sketchpad})
 
 
-
 def create_sketchpad(request):
     if request.method == "GET":
         return render(request, "create.html", {"statuses": STATUS_CHOICES})
