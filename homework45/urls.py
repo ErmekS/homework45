@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import index_view, create_sketchpad, sketchpad_view
+from webapp.views import index_view, create_sketchpad, sketchpad_view, update_sketchpad, delete_sketchpad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view, name="index"),
     path('sketch/<int:pk>/', sketchpad_view, name="sketchpad_view"),
     path('sketch/add/', create_sketchpad, name="create_sketchpad"),
+    path('sketch/<int:pk>/update', update_sketchpad, name="update_sketchpad"),
+    path('sketch/<int:pk>/delete', delete_sketchpad, name="delete_sketchpad"),
 
 ]
